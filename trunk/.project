@@ -24,4 +24,11 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>include-mingw32</name>
+			<type>2</type>
+			<location>C:/MinGW/lib/gcc/mingw32/5.3.0/include</location>
+		</link>
+	</linkedResources>
 </projectDescription>
