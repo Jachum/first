@@ -18,10 +18,13 @@ public:
 	virtual ~Pad();
 	virtual void Render();
 	virtual void Update();
+	void Move(Position vector);
+	void SetSign(char c);
 
 private:
 	int length;
 	Position pos;
+	char sign;
 
 };
 

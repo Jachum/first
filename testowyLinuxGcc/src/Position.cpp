@@ -12,13 +12,21 @@ Position::Position():x(0), y(0) {
 
 }
 
-Position::Position(int maxY, int maxX):
-		x(maxX), y(maxY)
+Position::Position(int y, int x):
+		x(x), y(y)
 {
 
 }
 
 Position::~Position() {
 	// TODO Auto-generated destructor stub
+}
+
+Position Position::operator+(const Position &r) const
+{
+	Position res;
+	res.x = x + r.x;
+	res.y = y + r.y;
+	return res;
 }
 

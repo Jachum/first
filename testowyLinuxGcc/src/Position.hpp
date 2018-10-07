@@ -13,6 +13,7 @@ public:
 	Position();
 	Position(int maxY, int maxX);
 	virtual ~Position();
+	Position operator+(const Position &r) const;
 
 	int x;
 	int y;

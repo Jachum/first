@@ -11,17 +11,39 @@
 
 #include "Pad.hpp"
 #include "Game.hpp"
+#include "Position.hpp"
 
 using namespace std;
 
-void ProcessInput()
+void ProcessInput(Pad &playerPad)
 {
 	int key = getch();
+	//printw("Key = 0x%x", key);
+	switch (key)
+	{
+	case KEY_LEFT:
+	{
+		Position vec(0,-1);
+		playerPad.Move(vec);
+		playerPad.SetSign('L');
+	}
+	    break;
+	case KEY_RIGHT:
+	{
+		Position vec(0,1);
+		playerPad.Move(vec);
+		playerPad.SetSign('R');
+	}
+	    break;
+	default:
+		break;
+	}
+
 }
 
 int main() {
 	initscr();
-	keypad(stdscr, true);
+	keypad(stdscr, true); //true means getch() will return key instead of just error_num
 	int maxY,maxX;
 	getmaxyx(stdscr,maxY,maxX);
 
@@ -30,7 +52,7 @@ int main() {
 	//printw("Hello ncurses4 has color()=%d, maxY=%d, maxX=%d\n", has_colors(), maxY, maxX);
 	noecho();
 	curs_set(0);
-	timeout(100); //0 ==> non-blockign getch()
+	timeout(100); //timeout for getch() 0 ==> non-blocking getch(), 1000= 1s
 
 	Pad playerPad(maxY-1, maxX/2);
 	//move(maxY-1, maxX/2);
@@ -42,9 +64,9 @@ int main() {
 
 	while (true)
 	{
-	  ProcessInput();
-		//printw("Hello");
+	  ProcessInput(playerPad);
 	  gameLogic.Update();
+	  clear();
 	  gameLogic.Render();
 	  refresh();
 	  //usleep(1000);
