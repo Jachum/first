@@ -12,6 +12,7 @@
 #include "Pad.hpp"
 #include "Game.hpp"
 #include "Position.hpp"
+#include "gfxNcurses.hpp"
 
 using namespace std;
 
@@ -48,11 +49,8 @@ bool ProcessInput(Pad &playerPad)
 }
 
 int main() {
-	initscr();
-	keypad(stdscr, true); //true means getch() will return key instead of just error_num
-	int maxY,maxX;
-	getmaxyx(stdscr,maxY,maxX);
-
+    gfxNcurses gfx;
+    gfx.init();
 	Game gameLogic;
 	//attroff(A_REVERSE);
 	//printw("Hello ncurses4 has color()=%d, maxY=%d, maxX=%d\n", has_colors(), maxY, maxX);
@@ -60,7 +58,7 @@ int main() {
 	curs_set(0);
 	timeout(100); //timeout for getch() 0 ==> non-blocking getch(), 1000= 1s
 
-	Pad playerPad(maxY-1, maxX/2);
+	Pad playerPad(gfx.getMaxY()-1, gfx.getMaxX()/2);
 	//move(maxY-1, maxX/2);
 	//playerPad.Print();
 
