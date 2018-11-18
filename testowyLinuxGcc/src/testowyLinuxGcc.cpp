@@ -54,9 +54,6 @@ int main() {
 	Game gameLogic;
 	//attroff(A_REVERSE);
 	//printw("Hello ncurses4 has color()=%d, maxY=%d, maxX=%d\n", has_colors(), maxY, maxX);
-	noecho();
-	curs_set(0);
-	timeout(100); //timeout for getch() 0 ==> non-blocking getch(), 1000= 1s
 
 	Pad playerPad(gfx.getMaxY()-1, gfx.getMaxX()/2);
 	//move(maxY-1, maxX/2);

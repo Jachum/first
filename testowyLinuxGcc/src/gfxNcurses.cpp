@@ -5,10 +5,14 @@
 #include "gfxNcurses.hpp"
 #include <ncurses.h>
 
+
 void gfxNcurses::init() {
     initscr();
     keypad(stdscr, true); //true means getch() will return key instead of just error_num
     getmaxyx(stdscr,maxY,maxX);
+    noecho();
+    curs_set(0);
+    timeout(100); //timeout for getch() 0 ==> non-blocking getch(), 1000= 1s
     return;
 }
 
@@ -27,4 +31,6 @@ int gfxNcurses::getMaxY() const {
 int gfxNcurses::getMaxX() const {
     return maxX;
 }
+
+gfxNcurses::gfxNcurses() : maxY(1), maxX(1) {}
 

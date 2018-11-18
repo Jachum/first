@@ -1,5 +1,5 @@
 /*
- * GameObject.hpp
+ * GameObjectInterface.hpp
  *
  *  Created on: 18 wrz 2017
  *      Author: janek
@@ -8,10 +8,10 @@
 #ifndef GAMEOBJECT_HPP_
 #define GAMEOBJECT_HPP_
 
-class GameObject {
+class GameObjectInterface {
 public:
-	GameObject();
-	virtual ~GameObject();
+	GameObjectInterface();
+	virtual ~GameObjectInterface();
 	virtual void Update()=0;
 	virtual void Render()=0;
 };

@@ -6,7 +6,7 @@
  */
 
 #include "Game.hpp"
-#include "GameObject.hpp"
+#include "GameObjectInterface.hpp"
 
 Game::Game() {
 	// TODO Auto-generated constructor stub
@@ -19,21 +19,23 @@ Game::~Game() {
 
 void Game::Update()
 {
-	for (std::list<GameObject*>::iterator i=gameObjList.begin(); i!=gameObjList.end(); i++)
+    //std::list<GameObjectInterface*>::iterator
+	for (auto element : gameObjList)
 	{
-		(*i)->Update();
+		element->Update();
 	}
 }
 
 void Game::Render()
 {
-	for (std::list<GameObject*>::iterator i=gameObjList.begin(); i!=gameObjList.end(); i++)
+	//std::list<GameObjectInterface*>::iterator
+	for (auto element : gameObjList)
 	{
-		(*i)->Render();
+		element->Render();
 	}
 }
 
-void Game::AddObj(GameObject& obj)
+void Game::AddObj(GameObjectInterface& obj)
 {
 	gameObjList.push_back(&obj);
 }

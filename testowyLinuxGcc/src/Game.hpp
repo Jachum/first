@@ -8,7 +8,7 @@
 #ifndef GAME_HPP_
 #define GAME_HPP_
 
-#include "GameObject.hpp"
+#include "GameObjectInterface.hpp"
 #include <list>
 
 
@@ -19,11 +19,11 @@ public:
 
 	void Update();
 	void Render();
-	void AddObj(GameObject& obj);
+	void AddObj(GameObjectInterface& obj);
 	void ProcessInput();
 
 private:
-	std::list<GameObject*> gameObjList;
+	std::list<GameObjectInterface*> gameObjList;
 
 };
 

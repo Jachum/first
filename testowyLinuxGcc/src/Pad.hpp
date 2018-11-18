@@ -9,15 +9,15 @@
 #define PAD_HPP_
 
 #include "Position.hpp"
-#include "GameObject.hpp"
+#include "GameObjectInterface.hpp"
 
-class Pad : public GameObject{
+class Pad : public GameObjectInterface{
 public:
 	Pad();
 	Pad(int maxY, int maxX);
-	virtual ~Pad();
-	virtual void Render();
-	virtual void Update();
+	~Pad() override;
+	void Render() override;
+	void Update() override;
 	void Move(Position vector);
 	void SetSign(char c);
 

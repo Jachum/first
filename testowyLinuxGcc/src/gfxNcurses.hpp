@@ -12,13 +12,12 @@ private:
     int maxY;
     int maxX;
 public:
+    gfxNcurses();
     int getMaxX() const;
-
-public:
+    int getMaxY() const;
     void init() override;
     void shutdown() override;
     void draw() override;
-    int getMaxY() const;
 
 };
 
