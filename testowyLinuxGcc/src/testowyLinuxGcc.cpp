@@ -15,8 +15,9 @@
 
 using namespace std;
 
-void ProcessInput(Pad &playerPad)
+bool ProcessInput(Pad &playerPad)
 {
+    bool isExit = false;
 	int key = getch();
 	//printw("Key = 0x%x", key);
 	switch (key)
@@ -35,10 +36,15 @@ void ProcessInput(Pad &playerPad)
 		playerPad.SetSign('R');
 	}
 	    break;
+	case 'q':
+    {
+        isExit=true;
+    }
+        break;
 	default:
 		break;
 	}
-
+    return isExit;
 }
 
 int main() {
@@ -62,9 +68,10 @@ int main() {
 	//on tu robi rzutowanie na klase bazowa dlatego sie nie odpala
 	gameLogic.AddObj(playerPad);
 
-	while (true)
+    bool isExit = false;
+    while (not isExit)
 	{
-	  ProcessInput(playerPad);
+	  isExit = ProcessInput(playerPad);
 	  gameLogic.Update();
 	  clear();
 	  gameLogic.Render();
