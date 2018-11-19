@@ -10,11 +10,12 @@
 
 #include "Position.hpp"
 #include "GameObjectInterface.hpp"
+#include "gfxInterface.hpp"
 
 class Pad : public GameObjectInterface{
 public:
-	Pad();
-	Pad(int maxY, int maxX);
+	//Pad();
+	Pad(gfxInterface& gfx_in, int maxY, int maxX);
 	~Pad() override;
 	void Render() override;
 	void Update() override;
@@ -25,6 +26,7 @@ private:
 	int length;
 	Position pos;
 	char sign;
+	gfxInterface& gfx;
 
 };
 

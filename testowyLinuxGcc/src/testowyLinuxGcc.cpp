@@ -27,14 +27,12 @@ bool ProcessInput(Pad &playerPad)
 	{
 		Position vec(0,-1);
 		playerPad.Move(vec);
-		playerPad.SetSign('L');
 	}
 	    break;
 	case KEY_RIGHT:
 	{
 		Position vec(0,1);
 		playerPad.Move(vec);
-		playerPad.SetSign('R');
 	}
 	    break;
 	case 'q':
@@ -55,7 +53,7 @@ int main() {
 	//attroff(A_REVERSE);
 	//printw("Hello ncurses4 has color()=%d, maxY=%d, maxX=%d\n", has_colors(), maxY, maxX);
 
-	Pad playerPad(gfx.getMaxY()-1, gfx.getMaxX()/2);
+	Pad playerPad(gfx, gfx.getMaxY()-1, gfx.getMaxX()/2);
 	//move(maxY-1, maxX/2);
 	//playerPad.Print();
 

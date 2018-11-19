@@ -6,11 +6,14 @@
 #define ARKANOID1_GFXINTERFACE_HPP
 
 
+#include "Position.hpp"
+
 class gfxInterface {
 public:
     virtual void init() = 0;
     virtual void shutdown() = 0;
     virtual void draw() = 0;
+    virtual Position get_screen_max() = 0;
 };
 
 

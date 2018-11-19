@@ -8,16 +8,16 @@
 #include "Pad.hpp"
 #include <ncurses.h>
 
-Pad::Pad(int maxY, int maxX):
-length(5), pos(maxY,maxX), sign('#')
+Pad::Pad(gfxInterface& gfx_in, int start_y, int start_x):
+length(5), pos(start_y, start_x), sign('#'), gfx(gfx_in)
 {
 
 }
 
-Pad::Pad(): length(5),sign('#'){
+//Pad::Pad(): length(5),sign('#'){
 	// TODO Auto-generated constructor stub
 
-}
+//}
 
 Pad::~Pad() {
 	// TODO Auto-generated destructor stub
@@ -26,6 +26,14 @@ Pad::~Pad() {
 void Pad::Update()
 {
 	//handle collisions etc?
+	if (pos.x < 0)
+    {
+	    pos.x = 0;
+    }
+   else if ((pos.x + length) > gfx.get_screen_max().x)
+    {
+		pos.x = pos.x - 1;
+	}
 }
 
 void Pad::Render()

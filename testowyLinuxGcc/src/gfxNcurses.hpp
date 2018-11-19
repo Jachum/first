@@ -18,6 +18,7 @@ public:
     void init() override;
     void shutdown() override;
     void draw() override;
+    Position get_screen_max() override;
 
 };
 

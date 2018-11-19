@@ -34,3 +34,7 @@ int gfxNcurses::getMaxX() const {
 
 gfxNcurses::gfxNcurses() : maxY(1), maxX(1) {}
 
+Position gfxNcurses::get_screen_max() {
+    return Position(maxY, maxX);
+}
+
